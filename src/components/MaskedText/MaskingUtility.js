@@ -1,6 +1,7 @@
 
 
 export function getMaskedString(text,usedLetters){
+    console.log(usedLetters);
     usedLetters = usedLetters.map(letter => letter.toUpperCase());//['h','m','e'] --> ['H','M','E']
 
     const usedLettersSet = new Set(usedLetters);
