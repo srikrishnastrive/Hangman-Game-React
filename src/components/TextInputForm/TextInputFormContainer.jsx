@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TextInputForm from "./TextInputForm";
 import { useNavigate } from "react-router-dom";
 
@@ -25,9 +25,23 @@ function TextInputFormContainer({ onSubmit}) {
         console.log(event.target.value);
         setValue(event.target.value);
     }
+    // useEffect(()=>{
+    //     console.log('component first load');
+    // },[]); // passing empty dependency array
+    // useEffect(() =>{
+    //     console.log('component first load and upadate');
+    // });
+    // useEffect(() =>{
+    //     console.log('component first load and update value changed');
+    // },[value]);
+    // useEffect(() =>{
+    //     console.log('component first load and input value changed');
+    // },[inputType]);
 
     return (
         // Calling the presentation layer
+        <>
+        
         <TextInputForm
             handleFormSubmit={handleFormSubmit}
             handleTextInputChange={handleTextInputChange}
@@ -35,8 +49,19 @@ function TextInputFormContainer({ onSubmit}) {
             inputType={inputType}
             setInputType={setInputType}
         />
+        {inputType === 'password' ? <Temp/> : null}
+        </>
     );
 
+}
+
+function Temp(){
+    useEffect(() => {
+        console.log('Temp component first load');
+        return () =>{
+            console.log("Temp component unmounted");
+        }
+    },[]);
 }
 
 export default TextInputFormContainer;

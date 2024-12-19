@@ -2,6 +2,7 @@ import TextInputFormContainer from "./components/TextInputForm/TextInputFormCont
 import { Routes,Route } from "react-router-dom";
 import StartGame from "./pages/StartGame";
 import PlayGame from "./pages/PlayGame";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <Routes>
       <Route path="/start" element = {<StartGame/>}/>
       <Route path="/play" element = {<PlayGame/>}/>
-      <Route path="/" element = {<div>home</div>} />
+      <Route path="/" element = {<Home/>} />
     </Routes>
   );
 }
